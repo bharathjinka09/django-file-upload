@@ -10,7 +10,8 @@
 		}
 	</style>
 </head>
-<body class="container">
+<body>
+	<div class="container">
 	{% block content_header %}
 	<h2 class="text-center">Books List</h2>
 	<p>
@@ -18,7 +19,7 @@
 	</p>
 	{% endblock %}
 
-	<table class="table">
+	<table class="table table-responsive">
 		<thead>
 			<tr>
 				<th>Cover Image</th>
@@ -54,5 +55,6 @@
 			{% endfor %}
 		</tbody>
 	</table>
+</div>
 </body>
 </html>
