@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +14,12 @@
 </head>
 <body class="container">
 	<h2>Upload Book</h2>
+	<p>
+		<a href="{% url 'book_list' %}" class="btn btn-sm btn-success">Books List</a>
+	</p>
 	<form method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{ form.as_p }}
+		{{ form|crispy }}
 		<button type="submit" class="btn btn-sm btn-info">Upload book</button>
 		
 	</form>

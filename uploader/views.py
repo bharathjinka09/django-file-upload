@@ -21,7 +21,7 @@ def upload(request):
 
 
 def book_list(request):
-    books = Book.objects.all()
+    books = Book.objects.all()[::-1]
     return render(request, 'uploader/book_list.html', {'books': books})
 
 
