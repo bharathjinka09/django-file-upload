@@ -11,10 +11,13 @@
 	</style>
 </head>
 <body class="container">
+	{% block content_header %}
 	<h2 class="text-center">Books List</h2>
 	<p>
 		<a href="{% url 'upload_book' %}" class="btn btn-sm btn-success">Upload Book</a>
 	</p>
+	{% endblock %}
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -22,6 +25,7 @@
 				<th>Title</th>
 				<th>Author</th>
 				<th>Download</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,6 +43,12 @@
 				<td>
 					<a class="btn btn-sm btn-primary" href="{{ book.pdf.url }}" target="_blank">Download
 					</a>
+				</td>
+				<td>
+					<form method="post" action="{% url 'delete_book' book.pk %}">
+						{% csrf_token %}
+						<button type="submit" class="btn btn-sm btn-danger">Delete</button>
+					</form>
 				</td>
 			</tr>
 			{% endfor %}
