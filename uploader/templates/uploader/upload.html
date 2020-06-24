@@ -10,7 +10,7 @@
 <body>
 	<div class="container">		
 		<h3>Upload file</h3>
-		<form method="post" enctype="multipart/form-data">
+		<form novalidate method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<input type="file" name="document">
 			<button type="submit">Upload File</button>
